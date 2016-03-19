@@ -1,0 +1,404 @@
+@min-page-width: 800px;
+@max-page-width: 1000px;
+@button-color-dark: #DD8500;
+@button-color-light: #FFA500;
+@color-orange: #ff9429;
+@color-dark-orange: #d17920;
+
+html, body {
+	margin: 0;
+	padding: 0;	
+}
+
+body {
+	background-color: #212121;
+	font-family: 'Open Sans';
+	color: white;
+	min-width: @min-page-width;
+}
+
+.header {
+	position: fixed;
+	width: 100%;
+	min-width: @min-page-width;
+	z-index: 10;
+
+	.toolbar {
+		position: relative;
+		font-size: 16px;
+		height: 70px;
+		line-height: 70px;
+		background-color: rgba(0, 0, 0, 1);
+
+		.logo {
+			margin-left: 40px;
+			font-family: 'Open Sans';
+			font-size: 26px;
+            font-variant: small-caps;
+			display: inline-block;
+			margin-right: 20px;
+			cursor: pointer;
+			-webkit-user-select: none;
+
+			img {
+				position: relative;
+				top: 8px;
+				margin-right: 5px;
+			}
+		}
+
+		.toplinks {
+			display: inline-block;
+
+			.toplink {
+				display: inline-block;
+				margin-left: 0px;
+				cursor: pointer;
+				padding: 0 20px;
+				line-height: 40px;
+				-webkit-user-select: none;
+				-webkit-transition: all 0.1s linear;
+				&:hover {
+					background-color: rgba(255, 255, 255, 0.5);
+					color: #000;
+				}
+
+				&.active {
+					border-bottom: 4px solid @button-color-dark;
+				}
+			}
+		}
+
+		.logintools {
+			display: inline-block;
+			float: right;
+			margin-right: 40px;
+
+			.logintool {
+				display: inline-block;
+				line-height: 40px;
+				cursor: pointer;
+				padding: 0 20px;
+				-webkit-user-select: none;
+				-webkit-transition: all 0.1s linear;
+				&:hover {
+					background-color: rgba(255, 255, 255, 0.5);
+					color: #000;
+				}
+
+				&[data-is-icon=""] {
+					padding: 0 0 0 8px;
+					position: relative;
+					top: 12px;
+					&:hover {
+						background-color: initial;
+					}
+
+					.image-icon {
+						opacity: 0;
+						position: absolute;
+						top: 12px;
+						right: 12px;
+						color: #fff;
+					}
+
+					&:hover {
+						img.profile {
+							opacity: 0.35;
+						}
+
+						.image-icon {
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+
+		.loginform {
+			position: absolute;
+			right: 0;
+			top: 70px;
+			background-color: rgba(0, 0, 0, 0.7);
+			padding: 0 20px;
+
+			input {
+				box-sizing: border-box;
+				height: 30px;
+				line-height: 2em;
+				font-size: 12px;
+				padding-left: 4px;
+			}
+
+			button {
+				height: 30px;
+				background-color: #ccc;
+				color: #000;
+				border: none;
+				padding-left: 10px;
+				padding-right: 10px;
+				font-size: 13px;
+   			}
+
+   			i.close {
+   				position: absolute;
+   				top: 2px;
+   				right: 3px;
+   				opacity: 0;
+   				cursor: pointer;
+   				color: #777;
+
+   				&:hover {
+   					color: #ccc;
+   				}
+   			}
+
+   			&:hover {
+   				i.close {
+   					opacity: 1;
+   				}
+   			}
+		}
+	}	
+}
+
+.content {
+	max-width: @max-page-width;
+	margin-left: 40px;
+	margin-right: auto;
+}
+
+
+.page {
+	padding-top: 70px;
+	position: absolute;
+
+	.cover {
+		position: relative;
+		padding-top: 20px;
+		padding-bottom: 20px;
+
+		img {
+			width: 100%;
+		}
+		.heading {
+			font-size: 42px;
+			text-shadow: -2px 2px 3px #333;
+		}
+	}
+}
+
+.alerts {
+	.filter-bar {
+		margin-top: 15px;
+		padding-bottom: 15px;
+		border-bottom: 1px solid #444;
+		margin-bottom: 2px;
+
+		input {
+			margin-left: 7px;
+			line-height: 2em;
+			width: 200px;
+			font-size: 14px;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+	}
+}
+
+.loos {
+	.filter-bar {
+		margin-top: 15px;
+		padding-bottom: 15px;
+		border-bottom: 1px solid #444;
+		margin-bottom: 2px;
+
+		input {
+			margin-left: 7px;
+			line-height: 2em;
+			width: 200px;
+			font-size: 14px;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+	}
+
+	section {
+		padding: 25px;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #333;
+		}
+
+		.section-heading {
+			.icon {
+				display: inline-block;
+				vertical-align: top;
+				img {
+					height: 80px;
+					border: 2px solid white;
+					border-radius: 8px;
+				}
+			}
+			.section-header {
+				display: inline-block;
+				vertical-align: top;
+				margin-left: 15px;
+
+				h1 {
+					margin: 0;
+					line-height: 50px;
+					font-size: 24px;
+					font-weight: normal;
+				}
+			}
+		}
+
+		.summary {
+			margin-top: 10px;
+		}
+
+	}
+}
+
+th {
+	text-align: left;
+	font-weight: normal;
+}
+
+th.horiz {
+	font-weight: bold;
+	height: 30px;
+	font-size: 18px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+td {
+	height: 40px;
+	line-height: 40px;
+	padding-left: 10px;
+}
+
+th.number, td.number {
+	text-align: right;
+	padding-left: 20px;
+}
+
+td.loo-location {
+	&:hover {
+		background-color: #444;
+	}
+}
+
+div.loo-issue-type-count {
+	width: 0;
+	-webkit-transition: all 0.25s linear;
+}
+
+td.number.count-zero {
+	color: #00CB00;
+}
+
+
+
+.star-rating {
+	display: inline-block;
+}
+
+.rating{
+  color: #a9a9a9;
+  margin: 0;
+  padding: 0;
+}
+
+ul.rating {
+  display: inline-block;
+}
+
+.rating li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 1px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.rating .filled {
+  color: #dd8500;
+}
+
+
+span.loo-id {
+	color: #777;
+	font-size: 0.8em;
+}
+
+.loo-details {
+	margin-top: 20px;
+}
+
+.loo-detail-label, .loo-detail-value {
+	display: inline-block;
+}
+
+.loo-detail-label {
+	width: 100px;
+	text-align: right;
+}
+
+.loo-detail-value {
+	margin-left: 10px;
+	color: #dd8500;
+
+	a {
+		color: #0085dd;
+		text-decoration: none;
+		border-bottom: 1px dotted #0085dd;
+	}
+
+	i {
+		display: inline-block;
+		width: 16px;
+		color: #bbb;
+		margin-right: 5px;
+	}
+}
+
+.tableauPlaceholder {
+	zoom: 0.93;
+	-webkit-zoom: 0.93;
+
+	display: inline-block !important;
+    vertical-align: top;
+}
+
+.side-heading {
+	font-size: 1.5em;
+    border-bottom: 1px solid #888;
+    padding-bottom: 10px;
+}
+
+.insights {
+	display: inline-block;
+    vertical-align: top;
+    padding-left: 15px;
+    margin-left: 10px;
+}
+
+.insights-heading {
+	font-size: 1.2em;
+	margin-top: 10px;
+	padding-bottom: 5px;
+	color: #dd8500;
+	border-bottom: 1px solid #444;
+	margin-left: 5px;
+}
+
+.loo-detail {
+    line-height: 1.6;
+}

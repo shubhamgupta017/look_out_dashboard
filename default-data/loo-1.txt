@@ -1,0 +1,14 @@
+{
+  "id": 1,
+  "address": "Tilak Nagar",
+  "latitude": "28.33",
+  "longitude": "76.82",
+  "timing": "8 am - 8 pm",
+  "paid": 0,
+  "avg_rating": 4,
+  "handicap_support": false,
+  "type": "Indian",
+  "urinal_count": "4",
+  "wc_count": 3,
+  "picture_url": ""
+}

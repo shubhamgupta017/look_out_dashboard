@@ -1,0 +1,14 @@
+{
+  "id": 2,
+  "address": "Gol Daak Khana",
+  "latitude": "28.13",
+  "longitude": "76.92",
+  "timing": "6 am - 11 pm",
+  "paid": 0,
+  "avg_rating": 2,
+  "handicap_support": false,
+  "type": "Western",
+  "urinal_count": "5",
+  "wc_count": 2,
+  "picture_url": ""
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>Loo-k Out</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" type="text/css" href="fonts/fonts.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet/less" type="text/css" href="less/styles.less">
+    <link rel="stylesheet" type="text/css" href="css/jquery.toast.min.css">
+    <script src="js/jquery-1.11.3.min"></script>
+    <script>less = { env: "development", async: false, fileAsync: false };</script>
+    <script src="js/less.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/jquery.toast.min.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+
+  <body ng-app="lookout">
+
+    <div class="header">
+
+      <div class="toolbar" ng-controller="ToolbarController as toolbar" ng-class="[toolbar.activeLink(), {'loggedIn': toolbar.loggedIn}]">
+
+        <div class="logo" ng-click="toolbar.navigateTo('dashboard')"><img src='images/lookout-icon.png' width='32'> {{toolbar.logo.text}}</div>
+
+        <div class="toplinks">
+          <div class="toplink" ng-repeat="toplink in toolbar.toplinks" ng-class="{'active': toolbar.isActive(toplink)}" ng-show="toplink.adminOnly ? toolbar.loggedIn : true" ng-click="toolbar.navigateTo(toplink.link)">{{toplink.text}}</div>
+        </div>
+
+        <div class="logintools">
+          <!-- <div class="logintool search"><i class="fa fa-search"></i></div> -->
+          <div class="logintool" ng-cloak ng-show="toolbar.showLoggedOutTools" ng-repeat="tool in toolbar.loggedOutTools" ng-click="toolbar.userAction(tool.link)">{{tool.text}}</div>
+          <div class="logintool" ng-cloak ng-show="toolbar.showLoggedInTools" ng-repeat="tool in toolbar.loggedInTools" ng-click="toolbar.userAction(tool.link)" data-is-icon="{{tool.icon}}">
+            <i ng-if="tool.icon" class="fa fa-{{tool.icon}}"></i>
+            <img class="profile" ng-if="tool.image" ng-src="{{tool.image}}" height="40px"></img>
+            <i ng-if="tool.image" class="image-icon fa fa-power-off"></i>
+          </div>
+        </div>
+
+        <div class="loginform" ng-show="toolbar.showLoginForm">
+          <form class="login" ng-submit="toolbar.submitLogin()">
+            <input name="username" placeholder="User Name"></input>
+            <input name="password" placeholder="Password" type="password"></input>
+            <button type="submit" value="Login">Login</button>
+            <i class="close fa fa-times" ng-click="toolbar.showLoginForm = false;"></i>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div ng-view data-autoscroll="true" class="content animate-fade"></div>
+
+<!--     <div class="footer" ng-controller="FooterController as footer">
+      <div class="footer-section" ng-repeat="section in footer.sections">
+        <div class="title">{{section.title}}</div>
+        <div class="links">
+          <div class="link" ng-repeat="link in section.links" ng-click="footer.navigateTo(link.url)">{{link.label}}</div>
+        </div>
+      </div>
+    </div>
+ -->
+  </body>
+</html>

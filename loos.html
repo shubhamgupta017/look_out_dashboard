@@ -1,0 +1,27 @@
+<div class="page loos" ng-controller="LoosController as loos">
+  
+  <div class="cover">
+    <div class="heading">Public Loos</div>
+  </div>
+
+  <div class="filter-bar">
+    <i class="fa fa-lg fa-filter"></i> <input placeholder="Filter" type="text" ng-model="filterText.address" autofocus>
+  </div>
+
+  <div class="challenge-list">
+      <table>
+        <tr>
+          <th class="horiz">Location</th>
+          <th class="horiz">
+            Rating
+          </th>
+        </tr>
+        <tr ng-repeat="loo in loos.loos | filter:filterText | orderBy:'-avg_rating'">
+          <td class="loo-location" style="cursor: pointer;" ng-click="loos.navigateTo('/loos/' + loo.id)">{{loo.address}} <span class='loo-id'>(Loo-{{loo.id}})</span></td>
+          <td>
+            <div class="star-rating" star-rating star-value="loo.avg_rating" data-max="5" on-rating-selected="rateFunction(rating)"></div> &nbsp;&nbsp;{{clipRating(loo.avg_rating)}}
+          </td>
+        </tr>
+      </table>
+  </div>
+</div>

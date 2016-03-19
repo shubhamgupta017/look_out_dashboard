@@ -1,0 +1,40 @@
+<div class="page challenge" ng-controller="LooController as loo">
+	
+	<div class="cover">
+		<div class="heading">{{loo.details.address}} <span class='loo-id'>(Loo-{{loo.details.id}})</span></div>
+	</div>
+
+	<div class="star-rating" style="font-size: 1.5em;" star-rating star-value="loo.details.avg_rating" data-max="5" on-rating-selected="rateFunction(rating)"></div> <span style="font-size: 1.5em;">&nbsp;&nbsp;{{loo.details.avg_rating}}</span>
+
+	<div class="loo-details">
+		<div class="loo-detail">
+			<div class="loo-detail-label">Type</div>:
+			<div class="loo-detail-value"><i class="fa fa-phone"></i> {{loo.details.type}}</div>
+		</div>
+		<div class="loo-detail">
+			<div class="loo-detail-label">Cost</div>:
+			<div class="loo-detail-value"><i class="fa fa-rupee"></i> {{loo.details.paid ? "Paid" : "Free"}}</div>
+		</div>
+		<div class="loo-detail">
+			<div class="loo-detail-label">Timings</div>:
+			<div class="loo-detail-value"><i class="fa fa-calendar"></i> {{loo.details.timing}} hrs</div>
+		</div>
+		<div class="loo-detail">
+			<div class="loo-detail-label">Stall Count</div>:
+			<div class="loo-detail-value"><i class="fa fa-users"></i> {{loo.details.urinal_count}}</div>
+		</div>
+		<div class="loo-detail">
+			<div class="loo-detail-label">Contact</div>:
+			<div class="loo-detail-value"><i class="fa fa-phone"></i> {{loo.details.contact}}</div>
+		</div>
+		<div class="loo-detail">
+			<div class="loo-detail-label">Location</div>:
+			<div class="loo-detail-value"><i class="fa fa-map"></i> <a target='_blank' href='https://www.google.co.in/maps/@{{loo.details.latitude}},{{loo.details.longitude}},15z'>{{loo.details.latitude}}, {{loo.details.longitude}}</a></div>
+		</div>
+		<div class="loo-detail">
+			<div class="loo-detail-label">Accessible</div>:
+			<div class="loo-detail-value"><i class="fa fa-wheelchair"></i> {{loo.details.handicap_support ? "Yes" : "No"}}</div>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,30 @@
+<div class="page alerts" ng-controller="AlertsController as alerts">
+  
+  <div class="cover">
+    <div class="heading">Issues</div>
+  </div>
+
+  <div class="filter-bar">
+    <i class="fa fa-lg fa-filter"></i> <input placeholder="Filter" type="text" ng-model="filterText.address" autofocus>
+  </div>
+
+  <div class="challenge-list">
+      <table>
+        <tr>
+          <th class="horiz">Location</th>
+          <th class="horiz" colspan="2">
+            Open Issues
+          </th>
+        </tr>
+        <tr ng-repeat="section in alerts.loos | filter:filterText | orderBy:'-numIssues'">
+          <td class="loo-location" style="cursor: pointer;" ng-click="alerts.navigateTo('/loo-issues/' + section.id)">{{section.address}} <span class='loo-id'>(Loo-{{section.id}})</span></td>
+          <td class="number">
+            {{section.numIssues}}
+          </td>
+          <td>
+            <div style="margin-left: 10px; background-color: #dd8500; height: 15px; width: {{200*section.numIssues/alerts.maxIssueCount}}px"></div>
+          </td>
+        </tr>
+      </table>
+  </div>
+</div>

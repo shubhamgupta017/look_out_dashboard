@@ -1,0 +1,18 @@
+{
+  "id": 1,
+
+  "no_soap_count": 2,
+  "no_soap_since": "17/03/2016",
+
+  "no_water_count": 1,
+  "no_water_since": "16/03/2016",
+
+  "broken_count": 5,
+  "broken_since": "15/03/2016",
+
+  "other_count": 1,
+  "other_since": "18/03/2016",
+
+  "dirty_count": 0,
+  "dirty_since": "18/03/2016"
+}

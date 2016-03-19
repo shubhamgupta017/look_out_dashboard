@@ -1,0 +1,31 @@
+<div class="page loo-issues" ng-controller="LooIssuesController as looIssues">
+  
+  <div class="cover">
+    <div class="heading">Issues - {{looIssues.loo.address}} <span class='loo-id'>(Loo-{{looIssues.loo.id}})</span></div>
+  </div>
+
+  <div class="challenge-list">
+      <table>
+        <tr>
+          <th class="horiz">Issue</th>
+          <th class="horiz" colspan="2">Pending Count</th>
+          <th class="horiz">Since</th>
+          <th class="horiz" colspan="2">Resolution</th>
+        </tr>
+        <tr ng-repeat="section in looIssues">
+          <tr ng-repeat="issue_type in looIssues.issue_types">
+            <td>{{issue_type.label}}</td>
+            <td style="min-width: 20px;" ng-class="['number', {'count-zero': looIssues.issues[issue_type.type + '_count'] === 0}]">{{looIssues.issues[issue_type.type + '_count']}}</td>
+            <td style="width: 240px;">
+              <div class="loo-issue-type-count" style="margin-left: 10px; background-color: #dd8500; height: 15px; width: {{200*looIssues.issues[issue_type.type + '_count']/looIssues.maxIssueCount}}px"></div>
+            </td>
+            <td>{{convertToDateStr(looIssues.issues[issue_type.type + '_since'])}}</td>
+            <td style="text-align: center;">
+              <button ng-click="remind(looIssues.looId, issue_type.type)" ng-disabled="looIssues.issues[issue_type.type + '_count'] === 0"><i class="fa fa-bell"></i> Remind</button>
+              <button ng-click="actionTaken(looIssues.looId, issue_type.type)" ng-disabled="looIssues.issues[issue_type.type + '_count'] === 0"><i class="fa fa-check"></i> Action taken</button>
+            </td>
+          </tr>
+        </tr>
+      </table>
+  </div>
+</div>

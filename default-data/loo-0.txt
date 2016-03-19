@@ -1,0 +1,14 @@
+{
+  "id": 0,
+  "address": "Connaught Place Inner Circle",
+  "latitude": "28.23",
+  "longitude": "76.665",
+  "timing": "7 am - 11 pm",
+  "paid": 1,
+  "avg_rating": 3.5,
+  "handicap_support": true,
+  "type": "Indian/Western",
+  "urinal_count": "3",
+  "wc_count": 4,
+  "picture_url": ""
+}

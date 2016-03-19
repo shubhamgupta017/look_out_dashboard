@@ -1,0 +1,14 @@
+{
+  "id": 3,
+  "address": "Barakhamba Road",
+  "latitude": "27.98",
+  "longitude": "77.02",
+  "timing": "8 am - 7 pm",
+  "paid": 1,
+  "avg_rating": 4.7,
+  "handicap_support": true,
+  "type": "Indian/Western",
+  "urinal_count": "3",
+  "wc_count": 5,
+  "picture_url": ""
+}
